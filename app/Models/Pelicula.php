@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Pelicula extends Model
 {
     use HasFactory;
+
+    protected $fillable = ['title','year'];
 }

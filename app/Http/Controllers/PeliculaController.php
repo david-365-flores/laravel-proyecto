@@ -22,7 +22,7 @@ class PeliculaController extends Controller
      */
     public function create()
     {
-        //
+        return view('peliculas.create');
     }
 
     /**
@@ -31,6 +31,13 @@ class PeliculaController extends Controller
     public function store(Request $request)
     {
         //
+        $request->validate([
+            'title' => 'required|string',
+            'year' => 'required|integer|min:1500',
+        ]);
+        Pelicula::create($request->all());
+
+        return redirect()->route('peliculas.index')->with('success','');
     }
 
     /**
