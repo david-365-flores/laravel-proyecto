@@ -24,4 +24,8 @@ Route::middleware([
     })->name('dashboard');
 
     Route::resource('peliculas', PeliculaController::class);
+    
 });
+
+Route::get('peliculas/{pelicula}/delete', 'PeliculaController@delete')->name('peliculas.delete');
+Route::get('/peliculas/{pelicula}/edit', [PeliculaController::class, 'edit'])->name('peliculas.edit');

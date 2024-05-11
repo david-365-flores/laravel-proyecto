@@ -28,13 +28,12 @@
                         <td>{{$pelicula->year}}</td>
                         
                         <td>
-                            @can('delete', $pelicula)
-                                <form action="{{ route('peliculas.destroy', $pelicula) }}" method="POST">
-                                    @csrf
-                                    @method('DELETE')
-                                    <input type="submit" value="Eliminar">
-                                </form>
-                            @endcan
+                        <form method="POST" action="{{route('peliculas.destroy', ['pelicula' => $pelicula->id])}}">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit">Delete peli</button>
+                            </form>
+                            <a href="{{route('peliculas.edit', ['pelicula' => $pelicula->id])}}">Edit peli</a>
                         </td>
                     </tr>
                     @endforeach
