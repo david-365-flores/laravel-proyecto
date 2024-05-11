@@ -34,6 +34,7 @@
                                 <button type="submit">Delete peli</button>
                             </form>
                             <a href="{{route('peliculas.edit', ['pelicula' => $pelicula->id])}}">Edit peli</a>
+                            <a href="{{route('peliculas.show', ['pelicula' => $pelicula->id])}}">Show peli</a>
                         </td>
                     </tr>
                     @endforeach
