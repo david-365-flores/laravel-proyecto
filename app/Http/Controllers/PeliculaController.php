@@ -44,9 +44,8 @@ class PeliculaController extends Controller
      * Display the specified resource.
      */
 
-    public function show(Pelicula $pelicula)
-    {
-        return view('peliculas.show', ['pelicula' => $pelicula]);
+    public function show(Pelicula $pelicula) {
+        return view('peliculas.show', compact('pelicula'));
     }
 
     /**

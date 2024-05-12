@@ -5,14 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Pelicula extends Model
+class Review extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['title','year'];
-
-    public function reviews()
+    public function peliculas()
     {
-        return $this->hasMany(Review::class);
+        return $this->belongsTo(Pelicula::class);
     }
 }
