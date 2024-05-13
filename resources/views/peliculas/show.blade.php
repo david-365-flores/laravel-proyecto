@@ -17,15 +17,18 @@
                         @endforeach
                     </ul>
 
-                <h2>Reviews</h2>
+                <h2>Reseña</h2>
                 <ul>
                     @foreach ($reviews as $review)
                         <li>
-                            <p>{{ $review->user->name }} said:</p>
+                            <br>
                             <p>{{ $review->content }}</p>
+                            <br>
                         </li>
                     @endforeach
                 </ul>
+
+                <br>
 
                 <a href="{{ route('pelicula.index') }}">Back to peliculas</a>
             </div>

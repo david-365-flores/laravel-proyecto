@@ -20,9 +20,9 @@ class ReviewController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create(Pelicula $pelicula)
+    public function create()
     {
-        return view('reviews.create', compact('pelicula'));
+        //return view('reviews.create', compact('pelicula'));
         //return $pelicula;
     }
 
@@ -35,11 +35,10 @@ class ReviewController extends Controller
             'review' => 'required|max:255',
             'calificacion' => 'required|integer|min:0|max:10',
         ]);
-        $request->merge(['user_id' => Auth::id()]);
 
-        //$review = Review::create($request->all());
+        $review = Review::create($request->all());
 
-        return redirect()->route('pelicula.index');
+        return $review;
     }
 
     /**

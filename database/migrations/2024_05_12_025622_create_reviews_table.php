@@ -15,7 +15,6 @@ return new class extends Migration
             $table->id();
             $table->text('review');
             $table->integer('calificacion');
-            $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->foreignId('pelicula_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });

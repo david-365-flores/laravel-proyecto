@@ -48,7 +48,6 @@
                             
                             <a href="{{route('pelicula.edit', ['pelicula' => $pelicula->id])}}" class="button-blue">Editar</a>
                             <a href="{{route('pelicula.show', ['pelicula' => $pelicula->id])}}" class="button-blue">Detalles</a>
-                            <a href="{{route('review.create')}}" class="button-blue">Review</a>
                             <a href="{{route('pelicula.seleccionar-genero', ['pelicula' => $pelicula->id])}}" class="button-blue">Seleccionar Genero(s)</a>
                         </td>
                     </tr>

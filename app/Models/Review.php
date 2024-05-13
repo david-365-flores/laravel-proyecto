@@ -15,8 +15,4 @@ class Review extends Model
     {
         return $this->belongsTo(Pelicula::class);
     }
-
-    public function user() {
-        return $this->belongsTo(User::class);
-    }
 }
