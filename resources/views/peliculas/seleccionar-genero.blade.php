@@ -1,4 +1,4 @@
-<h1>Seleccionar gennero {{ $pelicula->title }}</h1>
+<h1>Seleccionar gennero para {{ $pelicula->title }}</h1>
 
     <form action="{{ route('pelicula.relacionar-genero-pelicula', $pelicula) }}" method="POST">
         @csrf

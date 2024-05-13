@@ -1,6 +1,11 @@
-<h1>Pelicula: {{ $pelicula->title }}</h1>
-<p>ID: {{ $pelicula->id }}</p>
-<p>Year: {{ $pelicula->year }}</p>
+<h1>Titulo: {{ $pelicula->title }}</h1>
+<h2>Año: {{ $pelicula->year }}</h2>
+<h2>Generos</h2>
+<ul>
+        @foreach ($pelicula->generos as $genero)
+            <li>{{ $genero->nombre }}</li>
+        @endforeach
+    </ul>
 
 <h2>Reviews</h2>
 <ul>

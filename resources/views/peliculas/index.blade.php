@@ -33,11 +33,9 @@
                                 @method('DELETE')
                                 <button type="submit">Delete peli</button>
                             </form>
-                            <a href="{{route('pelicula.edit', ['pelicula' => $pelicula->id])}}">Edit peli</a>
-                            <a href="{{route('pelicula.show', ['pelicula' => $pelicula->id])}}">Show peli</a>
-                            
-                            <a href="{{route('pelicula.test', ['pelicula' => $pelicula->id])}}">Test</a>
-                            <a href="{{route('pelicula.seleccionar-genero', ['pelicula' => $pelicula->id])}}">Genero</a>
+                            <a href="{{route('pelicula.edit', ['pelicula' => $pelicula->id])}}">Editar</a>
+                            <a href="{{route('pelicula.show', ['pelicula' => $pelicula->id])}}">Detalles</a>
+                            <a href="{{route('pelicula.seleccionar-genero', ['pelicula' => $pelicula->id])}}">Seleccionar Genero(s)</a>
                         </td>
                     </tr>
                     @endforeach
