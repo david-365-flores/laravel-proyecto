@@ -14,12 +14,14 @@ class SendMailable extends Mailable
 {
     use Queueable, SerializesModels;
 
+    //public $usuario =auth()->user();
+
     /**
      * Create a new message instance.
      */
     public function __construct()
     {
-        //
+        //this->usuario;
     }
 
     /**

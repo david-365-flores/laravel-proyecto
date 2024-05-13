@@ -5,6 +5,17 @@
         </h2>
     </x-slot>
 
+    <style>
+                            .button-blue {
+                            background-color: #007bff;
+                            color: #ffffff;
+                            padding: 10px 20px;
+                            border: none;
+                            border-radius: 5px;
+                            cursor: pointer;
+                            }
+                            </style>
+
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
@@ -14,16 +25,14 @@
             <table>
                 <thead>
                     <tr>
-                        <th>id</th>
-                        <th>title</th>
-                        <th>year</th>
-                        <th>actions</th>
+                        <th>Titulo</th>
+                        <th>Año</th>
+                        <th>Acciones</th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach ($peliculas as $pelicula)
                     <tr>
-                        <td>{{$pelicula->id}}</td>
                         <td>{{$pelicula->title}}</td>
                         <td>{{$pelicula->year}}</td>
                         
@@ -31,12 +40,16 @@
                         <form method="POST" action="{{route('pelicula.destroy', ['pelicula' => $pelicula->id])}}">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit">Delete peli</button>
+                                <button type="submit" style="background-color: red; color: white;">Eliminar</button>
+                                <br>
+
                             </form>
-                            <a href="{{route('pelicula.edit', ['pelicula' => $pelicula->id])}}">Editar</a>
-                            <a href="{{route('pelicula.show', ['pelicula' => $pelicula->id])}}">Detalles</a>
-                            <a href="{{route('review.create')}}">Review</a>
-                            <a href="{{route('pelicula.seleccionar-genero', ['pelicula' => $pelicula->id])}}">Seleccionar Genero(s)</a>
+                            
+                            
+                            <a href="{{route('pelicula.edit', ['pelicula' => $pelicula->id])}}" class="button-blue">Editar</a>
+                            <a href="{{route('pelicula.show', ['pelicula' => $pelicula->id])}}" class="button-blue">Detalles</a>
+                            <a href="{{route('review.create')}}" class="button-blue">Review</a>
+                            <a href="{{route('pelicula.seleccionar-genero', ['pelicula' => $pelicula->id])}}" class="button-blue">Seleccionar Genero(s)</a>
                         </td>
                     </tr>
                     @endforeach

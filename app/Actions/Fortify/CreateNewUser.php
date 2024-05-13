@@ -29,6 +29,7 @@ class CreateNewUser implements CreatesNewUsers
         ])->validate();
 
         Mail::to($input['email'])->send(new SendMailable());
+        //$this->sendEmailTo($input, 'Welcome to Our App, ' . $input->name);
 
         return User::create([
             'name' => $input['name'],
