@@ -23,6 +23,7 @@ Route::get('pelicula/{pelicula}/edit', [PeliculaController::class, 'edit'])->nam
 Route::get('pelicula/{pelicula}/show', [PeliculaController::class, 'show'])->name('pelicula.show');
 Route::get('pelicula/{pelicula}/test', [PeliculaController::class, 'test'])->name('pelicula.test');
 
+Route::resource('review', ReviewController::class);
 
 Route::middleware([
     'auth:sanctum',
@@ -34,7 +35,7 @@ Route::middleware([
     })->name('dashboard');
 
     
-    Route::resource('reviews', ReviewController::class);
+    
     Route::get('peliculas/{pelicula}/delete', 'PeliculaController@delete')->name('peliculas.delete');
     Route::get('peliculas/{pelicula}/edit', [PeliculaController::class, 'edit'])->name('peliculas.edit');
     Route::get('/peliculas/{pelicula}', 'PeliculaController@show')->name('peliculas.show');

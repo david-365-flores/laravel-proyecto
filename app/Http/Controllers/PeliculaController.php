@@ -80,7 +80,7 @@ class PeliculaController extends Controller
         $pelicula = Pelicula::findOrFail($id);
         $pelicula->delete();
 
-        return redirect()->route('pelicula.index')->with('success','Película eliminada exitosamente.');
+        return redirect()->route('pelicula.index');
     }
 
     public function test(Pelicula $pelicula)

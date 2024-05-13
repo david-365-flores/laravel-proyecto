@@ -35,6 +35,7 @@
                             </form>
                             <a href="{{route('pelicula.edit', ['pelicula' => $pelicula->id])}}">Editar</a>
                             <a href="{{route('pelicula.show', ['pelicula' => $pelicula->id])}}">Detalles</a>
+                            <a href="{{route('review.create')}}">Review</a>
                             <a href="{{route('pelicula.seleccionar-genero', ['pelicula' => $pelicula->id])}}">Seleccionar Genero(s)</a>
                         </td>
                     </tr>
