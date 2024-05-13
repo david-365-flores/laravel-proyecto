@@ -22,8 +22,8 @@ class DatabaseSeeder extends Seeder
             'email' => 'david@mail.com',
             'password' => 'gatitos23'
         ]);
-        Genero::factory(6)->create();
-        Pelicula::factory(5)->create();
+        Genero::factory(20)->create();
+        Pelicula::factory(50)->create();
         
 
     }
