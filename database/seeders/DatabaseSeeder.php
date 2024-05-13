@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Genero;
 use App\Models\Pelicula;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -21,6 +22,9 @@ class DatabaseSeeder extends Seeder
             'email' => 'david@mail.com',
             'password' => 'gatitos23'
         ]);
-        Pelicula::factory(15)->create();
+        Genero::factory(6)->create();
+        Pelicula::factory(5)->create();
+        
+
     }
 }

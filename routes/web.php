@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\PeliculaController;
+use App\Http\Controllers\ReviewController;
 use Illuminate\Support\Facades\Route;
 
 use App\Livewire\Counter;
@@ -13,6 +14,15 @@ Route::get('/', function () {
 
 //Route::resource('peliculas', PeliculaController::class);
 
+Route::resource('pelicula', PeliculaController::class);
+Route::get('/pelicula/{pelicula}/seleccionar-genero', [PeliculaController::class, 'seleccionarGenero'])->name('pelicula.seleccionar-genero');
+Route::post('/pelicula/{pelicula}/relacionar-genero-pelicula', [PeliculaController::class, 'relacionarGeneroPelicula'])->name('pelicula.relacionar-genero-pelicula');
+Route::get('pelicula/{pelicula}/delete', 'PeliculaController@delete')->name('pelicula.delete');
+
+Route::get('pelicula/{pelicula}/edit', [PeliculaController::class, 'edit'])->name('pelicula.edit');
+Route::get('pelicula/{pelicula}/show', [PeliculaController::class, 'show'])->name('pelicula.show');
+Route::get('pelicula/{pelicula}/test', [PeliculaController::class, 'test'])->name('pelicula.test');
+
 
 Route::middleware([
     'auth:sanctum',
@@ -23,17 +33,20 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 
-    Route::resource('peliculas', PeliculaController::class);
+    
+    Route::resource('reviews', ReviewController::class);
     Route::get('peliculas/{pelicula}/delete', 'PeliculaController@delete')->name('peliculas.delete');
     Route::get('peliculas/{pelicula}/edit', [PeliculaController::class, 'edit'])->name('peliculas.edit');
     Route::get('/peliculas/{pelicula}', 'PeliculaController@show')->name('peliculas.show');
     
 });
 
-Route::get('peliculas/{pelicula}/delete', 'PeliculaController@delete')->name('peliculas.delete');
 
-Route::get('peliculas/{pelicula}/edit', [PeliculaController::class, 'edit'])->name('peliculas.edit');
-Route::get('peliculas/{pelicula}/show', [PeliculaController::class, 'show'])->name('peliculas.show');
+//Route::get('review/{review}/create', [ReviewController::class, 'create'])->name('review.create');
+//Route::get('reviews/{review}/store', [ReviewController::class,'store'])->name('review.store');
+//Route::post('reviews/{review}/store', [ReviewController::class,'store'])->name('reviews.store');
 
-Route::get('/peliculas/{pelicula}', 'PeliculaController@show')->name('peliculas.show');
+
+//Route::post('/reviews/{pelicula}/create', 'ReviewsController@create');
 //Route::get('/peliculas/{pelicula}', 'App\Http\Controllers\PeliculaController@show')->name('peliculas.show');
+//Route::get('/reviews/{review}/create', [ReviewController::class, 'create'])->name('reviews.create');

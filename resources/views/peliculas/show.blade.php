@@ -6,11 +6,10 @@
 <ul>
     @foreach ($reviews as $review)
         <li>
-            <strong>{{ $review->user->name }}:</strong> {{ $review->body }}
+            <p>{{ $review->user->name }} said:</p>
+            <p>{{ $review->content }}</p>
         </li>
     @endforeach
 </ul>
 
-<!-- Add more details as needed -->
-<!-- <a href="{{ route('peliculas.edit', ['pelicula' => $pelicula->id]) }}">Edit pelicula</a> -->
-<a href="{{ route('peliculas.index') }}">Back to peliculas</a>
+<a href="{{ route('pelicula.index') }}">Back to peliculas</a>

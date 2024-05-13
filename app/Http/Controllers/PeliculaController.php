@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Genero;
 use App\Models\Pelicula;
 use Illuminate\Http\Request;
 
@@ -37,15 +38,17 @@ class PeliculaController extends Controller
         ]);
         Pelicula::create($request->all());
 
-        return redirect()->route('peliculas.index');
+        return redirect()->route('pelicula.index');
     }
 
     /**
      * Display the specified resource.
      */
 
+
     public function show(Pelicula $pelicula) {
-        return view('peliculas.show', compact('pelicula'));
+        $reviews = $pelicula->reviews;
+        return view('peliculas.show', compact('pelicula', 'reviews'));
     }
 
     /**
@@ -54,7 +57,7 @@ class PeliculaController extends Controller
 
      public function edit(Pelicula $pelicula)
      {
-         return view('peliculas.edit', compact('pelicula'));
+         return view('peliculas.edit', compact('pelicula'))->with('generos', Genero::all());
      }
      
      public function update(Request $request, Pelicula $pelicula)
@@ -66,7 +69,7 @@ class PeliculaController extends Controller
      
          $pelicula->update($validatedData);
      
-         return redirect()->route('peliculas.index');
+         return redirect()->route('pelicula.index');
      }
 
     /**
@@ -77,6 +80,28 @@ class PeliculaController extends Controller
         $pelicula = Pelicula::findOrFail($id);
         $pelicula->delete();
 
-        return redirect()->route('peliculas.index')->with('success','Película eliminada exitosamente.');
+        return redirect()->route('pelicula.index')->with('success','Película eliminada exitosamente.');
     }
+
+    public function test(Pelicula $pelicula)
+     {
+         return view('peliculas.test', compact('pelicula'));
+     }
+
+     public function seleccionarGenero(Pelicula $pelicula)
+     {
+        return view('peliculas.seleccionar-genero', compact('pelicula'))
+            ->with('generos', Genero::all());
+     }
+
+     public function relacionarGeneroPelicula(Request $request, Pelicula $pelicula)
+     {
+        $genero_id = $request->genero_id;
+        $pelicula_id = $pelicula->id;
+
+        $pelicula->generos()->sync($genero_id);
+
+
+        return redirect()->route('pelicula.show', $pelicula_id);
+     }
 }

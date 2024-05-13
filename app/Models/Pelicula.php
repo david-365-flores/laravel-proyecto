@@ -11,6 +11,10 @@ class Pelicula extends Model
 
     protected $fillable = ['title','year'];
 
+    public function generos(){
+        return $this->belongsToMany(Genero::class);
+    }
+
     public function reviews()
     {
         return $this->hasMany(Review::class);

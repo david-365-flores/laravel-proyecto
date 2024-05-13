@@ -2,13 +2,12 @@
 
 namespace Database\Factories;
 
-use App\Models\Pelicula;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Pelicula>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Opinion>
  */
-class PeliculaFactory extends Factory
+class OpinionFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -18,8 +17,7 @@ class PeliculaFactory extends Factory
     public function definition(): array
     {
         return [
-            'title' => $this->faker->streetName(),
-            'year' => $this->faker->numberBetween(1950,2024),
+            //
         ];
     }
 }
